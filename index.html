@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'none'; font-src 'self'; base-uri 'none'; object-src 'none'">
+<title>字符風場｜本機即時播放器</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="toolbar">
+  <div class="brand"><span class="mark" aria-hidden="true">✳</span><div><strong>字符風場</strong><span>CHARACTER FIELD / LIVE</span></div></div>
+  <div class="toolbar-actions"><span class="local-tag"><i></i> 本機運算</span><button id="choose" class="primary">選擇圖片</button></div>
+  <input id="file-input" type="file" accept="image/*" hidden>
+</header>
+<main>
+  <section id="stage" class="stage" tabindex="0" aria-label="即時字符動畫播放區，亦可將圖片拖入這裡">
+    <div class="stage-label"><span>PORTRAIT / ENTROPY</span><small>全幅斑駁 · 同源字符再生</small></div>
+    <span id="fps" class="fps" aria-label="實際播放幀率">GPU / 準備中</span>
+    <canvas id="canvas" aria-label="選定圖片的即時字符與風場動畫"></canvas>
+    <div id="drop-hint" class="drop-hint" hidden>放開圖片，開始即時演算</div>
+    <div class="stage-footer"><span id="status" role="status">準備載入本機範例…</span><span id="clock">00.00 / 08.00</span></div>
+  </section>
+  <aside class="controls" aria-label="播放控制">
+    <div class="eyebrow">即時播放控制</div>
+    <h1>讓圖像<br>散成字符。</h1>
+    <p class="intro">選一張圖，直接運算。<br>不是預先輸出的影片。</p>
+    <div class="source-card"><span>目前圖片</span><strong id="filename">載入中</strong><small id="image-info">—</small></div>
+    <div class="play-controls"><button id="play" class="play-button" aria-pressed="false">暫停</button><button id="restart" title="從起點重新播放">重播</button></div>
+    <div class="control-group"><div class="control-label"><label for="density">脫落密度</label><output id="density-value" for="density">50%</output></div><input id="density" type="range" min="0" max="100" value="50" step="1"><p>預設 50%，沿用 V5 的半密度。</p></div>
+    <div class="control-group"><div class="control-label"><label for="wind">風速</label><output id="wind-value" for="wind">1.00×</output></div><input id="wind" type="range" min="25" max="200" value="100" step="5"><p>向左飄散，原位留空後緩慢長回。</p></div>
+    <div class="control-group"><label for="quality">字符精細度</label><select id="quality"><option value="5">精細 · V5 視覺</option><option value="7">均衡 · 較大字符</option><option value="9">效能優先</option></select></div>
+    <dl class="metrics"><div><dt>圖像字符</dt><dd id="glyph-count">—</dd></div><div><dt>脫落點</dt><dd id="emit-count">—</dd></div><div><dt>運算方式</dt><dd>WebGL 2 / GPU</dd></div></dl>
+    <button id="fullscreen" class="full-button">全螢幕播放 <span aria-hidden="true">↗</span></button>
+    <p class="privacy">圖片只在本機處理，不上傳。<br>支援 PNG、JPG、WebP 等瀏覽器可讀格式。</p>
+    <div class="shortcuts"><kbd>Space</kbd> 暫停 <kbd>R</kbd> 重播 <kbd>F</kbd> 全螢幕</div>
+  </aside>
+</main>
+<div id="error" class="error" role="alert" hidden></div>
+<script src="core.js"></script><script src="renderer.js"></script><script src="demo-image.js"></script><script src="app.js"></script>
+</body>
+</html>

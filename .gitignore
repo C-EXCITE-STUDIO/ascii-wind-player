@@ -1,0 +1,12 @@
+# 私人圖片、原始測試與本機路徑不進公開倉庫。
+.local/
+reports/
+.test-tmp/
+dist/
+node_modules/
+.env
+.env.*
+*.log
+*.local
+.DS_Store
+Thumbs.db

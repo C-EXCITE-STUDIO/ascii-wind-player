@@ -1,0 +1,35 @@
+name: 驗證播放器
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: 核心與封裝 / ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: 讀取程式
+        uses: actions/checkout@v4
+      - name: 設定 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 語法檢查
+        run: |
+          node --check core.js
+          node --check renderer.js
+          node --check app.js
+          node --check demo-image.js
+      - name: 核心與封裝測試
+        run: node --test tests/core.test.cjs tests/package.test.cjs
