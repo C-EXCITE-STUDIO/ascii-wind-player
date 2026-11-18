@@ -1,6 +1,7 @@
 {
   "name": "ascii-wind-player",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "license": "MIT",
   "private": true,
   "description": "字符風場：離線 WebGL 2 圖像轉字符與同源脫落再生播放器",
   "scripts": {

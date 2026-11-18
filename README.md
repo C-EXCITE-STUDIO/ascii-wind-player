@@ -19,7 +19,7 @@ updated: 2026-11-18
 
 ## 開始使用
 
-1. 下載 [v0.1.0 發行版](https://github.com/C-EXCITE-STUDIO/ascii-wind-player/releases/tag/v0.1.0)，**完整解壓縮**。
+1. 下載 [v0.1.1 發行版](https://github.com/C-EXCITE-STUDIO/ascii-wind-player/releases/tag/v0.1.1)，**完整解壓縮**。
 2. Windows：雙擊 `start_player.cmd`，以 Chrome／Edge 獨立視窗開啟。
 3. 按「選擇圖片」，或將圖片拖到播放區。
 4. 調整脫落密度、風速及字符精細度。
@@ -86,4 +86,8 @@ node --check demo-image.js
 
 ## 授權
 
-本倉庫目前未附開源授權條款；公開原始碼不等同授予再散布或商業使用授權。
+本專案採用 [MIT License](LICENSE)，著作權標示為 `Copyright (c) 2026 C-EXCITE-STUDIO`。
+
+允許使用、修改、散布及商業使用；散布軟體或其重要部分時，必須保留著作權與授權聲明。軟體按現狀提供，不附任何擔保，完整條款以 `LICENSE` 為準。
+
+MIT 授權適用於本倉庫提供的軟體與隨附文件，不會替使用者自行載入的圖片授權；請另行確認圖片的使用權。
